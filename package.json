@@ -1,0 +1,86 @@
+{
+  "name": "linter",
+  "main": "./lib/index",
+  "author": "steelbrain",
+  "readme": "./README.md",
+  "version": "1.11.4",
+  "description": "A Base Linter with Cow Powers",
+  "repository": "https://github.com/steelbrain/linter",
+  "license": "MIT",
+  "keywords": [
+    "linter"
+  ],
+  "private": true,
+  "scripts": {
+    "test": "(apm test) && (flow check) && (eslint . )"
+  },
+  "engines": {
+    "atom": ">=1.4.0 <2.0.0"
+  },
+  "consumedServices": {
+    "linter": {
+      "versions": {
+        "^1.0.0": "consumeLinterLegacy",
+        "2.0.0": "consumeLinter"
+      }
+    },
+    "linter-ui": {
+      "versions": {
+        "1.0.0": "consumeUI"
+      }
+    }
+  },
+  "providedServices": {
+    "linter-indie": {
+      "versions": {
+        "2.0.0": "provideIndie"
+      }
+    }
+  },
+  "dependencies": {
+    "atom-package-deps": "^4.3.1",
+    "minimatch": "^3.0.3",
+    "sb-debounce": "^1.0.1"
+  },
+  "devDependencies": {
+    "eslint-config-steelbrain": "^2.0.0",
+    "flow-bin": "^0.31.1",
+    "jasmine-fix": "^1.0.0"
+  },
+  "package-deps": [
+    "linter-ui-default"
+  ],
+  "configSchema": {
+    "installRecommendedPackages": {
+      "description": "Installs recommended packages on startup",
+      "type": "boolean",
+      "default": true,
+      "order": 1
+    },
+    "lintPreviewTabs": {
+      "type": "boolean",
+      "default": true,
+      "order": 2
+    },
+    "lintOnChange": {
+      "title": "Lint on Change",
+      "description": "Lint files while typing, without the need to save (only for supported providers)",
+      "type": "boolean",
+      "default": true,
+      "order": 3
+    },
+    "lintOnChangeInterval": {
+      "title": "Lint on Change Interval",
+      "description": "Interval at which linting is done as you type (in ms)",
+      "type": "integer",
+      "default": 300,
+      "order": 4
+    },
+    "ignoreGlob": {
+      "title": "Ignore files matching this Glob",
+      "type": "string",
+      "default": "**/*.min.{js,css}",
+      "order": 5
+    }
+  }
+}
