@@ -12,4 +12,4 @@ machine:
     ATOM_LINT_WITH_BUNDLED_NODE: "true"
     APM_TEST_PACKAGES: ""
   node:
-    version: 6.3.0
+    version: 6.9.4
