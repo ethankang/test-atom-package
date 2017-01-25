@@ -6,6 +6,9 @@ dependencies:
 test:
   override:
     - ./build-package.sh
+  post:
+    - mkdir $CIRCLE_TEST_REPORTS/reports
+    - mv /tmp/atom-test-data* $CIRCLE_TEST_REPORTS/reports/
 
 machine:
   environment:
